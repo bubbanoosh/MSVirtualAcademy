@@ -17,7 +17,7 @@ namespace MVCMusicStoreWithAuthentication.Controllers
         // GET: Bands
         public ActionResult Index()
         {
-            //var model = from b in db.Bands orderby b.BandName select b;
+            ////var model = from b in db.Bands orderby b.BandName select b;
 
 
             return View(db.Bands.ToList());
