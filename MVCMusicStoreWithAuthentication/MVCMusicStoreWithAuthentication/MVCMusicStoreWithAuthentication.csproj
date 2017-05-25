@@ -226,6 +226,18 @@
     <Compile Include="Migrations\201705210231185_newMigration13.Designer.cs">
       <DependentUpon>201705210231185_newMigration13.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705240212007_newMigration.cs" />
+    <Compile Include="Migrations\201705240212007_newMigration.Designer.cs">
+      <DependentUpon>201705240212007_newMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705240356034_newMigration2.cs" />
+    <Compile Include="Migrations\201705240356034_newMigration2.Designer.cs">
+      <DependentUpon>201705240356034_newMigration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705240509498_newMigration3.cs" />
+    <Compile Include="Migrations\201705240509498_newMigration3.Designer.cs">
+      <DependentUpon>201705240509498_newMigration3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -318,11 +330,12 @@
     <Content Include="Views\Albums\Details.cshtml" />
     <Content Include="Views\Albums\Edit.cshtml" />
     <Content Include="Views\Albums\Index.cshtml" />
-    <Content Include="Views\Reviews\Create.cshtml" />
+    <Content Include="Views\Shared\_Review.cshtml" />
     <Content Include="Views\Reviews\Delete.cshtml" />
     <Content Include="Views\Reviews\Details.cshtml" />
     <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Index.cshtml" />
+    <Content Include="Views\Reviews\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -361,6 +374,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705210231185_newMigration13.resx">
       <DependentUpon>201705210231185_newMigration13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705240212007_newMigration.resx">
+      <DependentUpon>201705240212007_newMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705240356034_newMigration2.resx">
+      <DependentUpon>201705240356034_newMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705240509498_newMigration3.resx">
+      <DependentUpon>201705240509498_newMigration3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

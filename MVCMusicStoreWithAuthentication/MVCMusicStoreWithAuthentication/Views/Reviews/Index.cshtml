@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<MVCMusicStoreWithAuthentication.Models.Review>
 
 @{
-    ViewBag.Title = "Reviews Home";
+    ViewBag.Title = "Index";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,22 +12,22 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Album.Title)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReviewId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewId })
-        </td>
-    </tr>
+
+
+    @Html.Partial("_Review", item)
+
 }
 
 </table>

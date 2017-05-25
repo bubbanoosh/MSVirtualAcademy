@@ -15,10 +15,22 @@ namespace MVCMusicStoreWithAuthentication.Controllers
     {
         private MVCMusicStoreWithAuthenticationContext db = new MVCMusicStoreWithAuthenticationContext();
 
+        ///BestReview for Home page
+        ///using a 'PartialView' 
+        public ActionResult BestReview()
+        {
+            var bestReview = from r in db.Reviews
+                             orderby r.Rating descending
+                             select r;
+
+            return PartialView("_Review", bestReview.FirstOrDefault());
+        }
+
         // GET: Reviews
         public async Task<ActionResult> Index()
         {
-            return View(await db.Reviews.ToListAsync());
+            var reviews = db.Reviews.Include(r => r.Album);
+            return View(await reviews.ToListAsync());
         }
 
         // GET: Reviews/Details/5
@@ -37,8 +49,13 @@ namespace MVCMusicStoreWithAuthentication.Controllers
         }
 
         // GET: Reviews/Create
-        public ActionResult Create()
+        public ActionResult Create(int albumId)
         {
+            ViewBag.AlbumId = new SelectList(db.Albums, "AlbumId", "Title");
+
+            Album alb = db.Albums.Find(albumId);
+            ViewBag.AlbumName = alb.Title;
+
             return View();
         }
 
@@ -47,7 +64,7 @@ namespace MVCMusicStoreWithAuthentication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ReviewId,Comment")] Review review)
+        public async Task<ActionResult> Create([Bind(Include = "ReviewId,Comment,Rating,AlbumId")] Review review)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +73,7 @@ namespace MVCMusicStoreWithAuthentication.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.AlbumId = new SelectList(db.Albums, "AlbumId", "Title", review.AlbumId);
             return View(review);
         }
 
@@ -71,6 +89,7 @@ namespace MVCMusicStoreWithAuthentication.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AlbumId = new SelectList(db.Albums, "AlbumId", "Title", review.AlbumId);
             return View(review);
         }
 
@@ -79,7 +98,7 @@ namespace MVCMusicStoreWithAuthentication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ReviewId,Comment")] Review review)
+        public async Task<ActionResult> Edit([Bind(Include = "ReviewId,Comment,Rating,AlbumId")] Review review)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +106,7 @@ namespace MVCMusicStoreWithAuthentication.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.AlbumId = new SelectList(db.Albums, "AlbumId", "Title", review.AlbumId);
             return View(review);
         }
 

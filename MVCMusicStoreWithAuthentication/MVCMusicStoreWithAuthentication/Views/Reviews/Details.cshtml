@@ -11,11 +11,27 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Album.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Album.Title)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Comment)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
         </dd>
 
     </dl>

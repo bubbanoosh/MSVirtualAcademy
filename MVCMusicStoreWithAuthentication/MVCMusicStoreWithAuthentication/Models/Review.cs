@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MVCMusicStoreWithAuthentication.Models
 {
@@ -13,7 +14,11 @@ namespace MVCMusicStoreWithAuthentication.Models
 
         public string Comment { get; set; }
 
-        [Required]
+        public int Rating { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public int AlbumId { get; set; }
+
         public virtual Album Album { get; set; }
 
         [Required]

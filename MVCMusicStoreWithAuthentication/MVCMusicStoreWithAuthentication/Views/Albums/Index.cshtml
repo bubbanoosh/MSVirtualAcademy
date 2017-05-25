@@ -29,7 +29,8 @@
             @Html.DisplayFor(modelItem => item.Band.BandName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AlbumId }) |
+            @Html.ActionLink("Review it!", "create", "reviews", new { AlbumId = item.AlbumId}, "")
+            @Html.ActionLink("Edit", "Edit", new { id = item.AlbumId }) |
             @Html.ActionLink("Details", "Details", new { id=item.AlbumId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.AlbumId })
         </td>
