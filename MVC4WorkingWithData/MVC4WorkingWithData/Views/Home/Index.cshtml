@@ -29,9 +29,9 @@
             {
 
                 <div>
-                    <h4>@item.Name</h4>
-                    <div>Reviews - @item.CountOfReviews</div>
-                    <div>@item.City, @item.Country</div>
+                    <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                    <div>Reviews - @Html.DisplayFor(modelItem => item.CountOfReviews)</div>
+                    <div>@Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.Country)</div>
                     <hr>
 
                 </div>

@@ -94,7 +94,7 @@ D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\bin\Microso
 D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.csprojResolveAssemblyReference.cache
 D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.dll
 D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.pdb
-D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.Migrations.FirstMigration.resources
+D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\bin\AutoMapper.dll
+D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\bin\AutoMapper.xml
+D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.Migrations.newMigration.resources
 D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.csproj.GenerateResource.Cache
-D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.Migrations.FirstMigration1.resources
-D:\Websites\MSVirtualAcademy\MVC4WorkingWithData\MVC4WorkingWithData\obj\Debug\MVC4WorkingWithData.Migrations.FirstMigration2.resources

@@ -23,7 +23,6 @@ namespace MVC4WorkingWithData.Controllers
                     .OrderByDescending(r => r.Reviews.Average(review => review.Rating))
                     //Where clause
                     .Where (r => searchTerm == null || r.Name.StartsWith(searchTerm))
-                    .Take(10)
                     .Select(r => new RestaurantListViewModel
                     {
                         Id = r.Id,

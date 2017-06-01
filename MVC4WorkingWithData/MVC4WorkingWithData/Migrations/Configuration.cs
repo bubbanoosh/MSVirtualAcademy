@@ -36,6 +36,7 @@ namespace MVC4WorkingWithData.Migrations
                     }
                 },
                 new Models.Restaurant { Name = "Fred's Diner", City = "Sydney", Country = "Australia" },
+                new Models.Restaurant { Name = "Some Other Hamburgery", City = "Hampton Park", Country = "Australia" },
                 new Models.Restaurant { Name = "Jakotay's Hamburgery", City = "Hampton Park", Country = "Australia" },
                 new Models.Restaurant { Name = "Thai Laksa", City = "Melbourne", Country = "Australia" },
                 new Models.Restaurant { Name = "Sensational Servery", City = "Frankston", Country = "Australia" },
@@ -49,6 +50,7 @@ namespace MVC4WorkingWithData.Migrations
                     }
                 }
                 );
+
         }
     }
 }

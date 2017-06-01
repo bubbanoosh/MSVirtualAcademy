@@ -21,5 +21,7 @@ namespace MVC4WorkingWithData.Models
 
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<RestaurantReview> Reviews { get; set; }
+
+        public System.Data.Entity.DbSet<MVC4WorkingWithData.Models.RestaurantListViewModel> RestaurantListViewModels { get; set; }
     }
 }
