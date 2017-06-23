@@ -79,7 +79,6 @@ D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin
 D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin\Release\MVCWorkingWithData_2.dll.config
 D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin\Release\PagedList.xml
 D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin\Release\PagedList.Mvc.xml
-D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin\Release\Newtonsoft.Json.xml
 D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin\Release\System.Web.Helpers.xml
 D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin\Release\System.Web.Mvc.xml
 D:\Websites\MSVirtualAcademy\MVCWorkingWithData_2\MVCWorkingWithData_2.Tests\bin\Release\System.Web.Razor.xml
