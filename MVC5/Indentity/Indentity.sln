@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indentity", "Indentity\Indentity.csproj", "{0481C038-9E98-4965-A8D1-B77885FDDB4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indentity.Tests", "Indentity.Tests\Indentity.Tests.csproj", "{8A184245-4968-4FE2-8FC5-7241AFC150D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0481C038-9E98-4965-A8D1-B77885FDDB4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0481C038-9E98-4965-A8D1-B77885FDDB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0481C038-9E98-4965-A8D1-B77885FDDB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0481C038-9E98-4965-A8D1-B77885FDDB4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A184245-4968-4FE2-8FC5-7241AFC150D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A184245-4968-4FE2-8FC5-7241AFC150D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A184245-4968-4FE2-8FC5-7241AFC150D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A184245-4968-4FE2-8FC5-7241AFC150D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
