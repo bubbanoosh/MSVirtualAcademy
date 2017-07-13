@@ -496,6 +496,21 @@
             WEBAPI Version 1 Example
             </summary>
         </member>
+        <member name="M:PatientData.Controllers.PatientsController.GetMedications(System.String)">
+            <summary>
+            WEBAPI Version 1 Example
+            </summary>
+        </member>
+        <member name="M:PatientData.Controllers.PatientsController.WebApi_1_Example_1(System.String)">
+            <summary>
+            WEBAPI Version 1 Example
+            </summary>
+        </member>
+        <member name="M:PatientData.Controllers.PatientsController.WebApi_1_Example_2(System.String)">
+            <summary>
+            WEBAPI Version 1 Example
+            </summary>
+        </member>
         <member name="T:PatientData.Controllers.ValuesController">
             <summary>
             The Values controller inherits ApiController
