@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Authorized Request Version</title>
+</head>
+<body>
+    
+    <h1>Cors Request - Authorized Request Version</h1>
+
+    <h2>Register to begin</h2>
+    <form id="userData">
+        <label for="Email">Email</label>
+        <input type="email" id="Email" placeholder="Email" />
+        <label for="Password">Password</label>
+        <input type="password" id="Password" placeholder="Password" />
+        <label for="ConfirmPassword">Confirm Password</label>
+        <input type="password" id="ConfirmPassword" placeholder="Password" />
+        <input type="submit" id="register" value="Register" />
+    </form>
+    <hr />
+    <form id="userDataLogin">
+        <label for="Email">Email</label>
+        <input type="email" id="Email" placeholder="Email" />
+        <label for="Password">Password</label>
+        <input type="password" id="Password" placeholder="Password" />
+        <input type="submit" id="login" value="Login" />
+    </form>
+    <hr />
+    <button id="getPatients">Get Patients</button>
+
+    <pre id="output">
+    Need to register first to the account controller:
+                /api/account/register
+    Then login to retrieve the 'access_token' for OWIN middleware at /token
+
+    
+    </pre>
+
+    
+
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(function () {
+
+            var getPatients = function () {
+                var url = "http://localhost:53117/api/patients/";
+                //$.get(url).always(showResponse);
+                $.ajax(url, {
+                    type: "GET",
+                    headers: getAuthHeaders()
+                }).always(showResponse);
+                return false;
+            };
+
+            var showResponse = function (object) {
+                $("#output").text(JSON.stringify(object, null, 4));
+            };
+
+            var getAuthHeaders = function () {
+                if (accessToken) {
+                    return { "Authorization": "Bearer " + accessToken };
+                }
+            };
+
+
+            var register = function () {
+                var url = "http://localhost:53117/api/account/register";
+                var data = $("#userData").serialize();
+                $.post(url, data).always(showResponse);
+
+                return false;
+            };
+
+            var saveAccessToken = function (data) {
+                // The 'access_token' is in the JSON response.
+                // and we need to retain it for subsequent requests
+                accessToken = data.access_token
+            };
+
+            var login = function () {
+                var url = "http://localhost:53117/token";
+                var data = $("#userDataLogin").serialize();
+                // OWIN expects 'grant_type' for /token too
+                data = data + "&grant_type=password";
+
+                $.post(url, data)
+                    .success(saveAccessToken)
+                    .always(showResponse);
+
+                return false;
+            };
+
+            var accessToken = "";
+
+            $("#login").click(login);
+            $("#register").click(register);
+            $("#getPatients").click(getPatients);
+        });
+    </script>
+
+
+</body>
+</html>

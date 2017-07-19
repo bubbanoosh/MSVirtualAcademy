@@ -8,12 +8,15 @@ using MongoDB.Driver;
 using PatientData2.Models;
 using MongoDB.Driver.Linq;
 using MongoDB.Bson;
+using System.Web.Http.Cors;
 
 namespace PatientData2.Controllers
 {
     /// <summary>
     /// Controller for patients
     /// </summary>
+    [Authorize]
+    [EnableCors("*", "*", "GET")]
     [RoutePrefix("api/patients")]
     public class PatientsController : ApiController
     {
@@ -38,12 +41,35 @@ namespace PatientData2.Controllers
         //}
 
         /// <summary>
-        /// WEBAPI 1.0 version
+        /// WebAPI 2 - Get a patient by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("{id}")]
+        //[HttpGet]
+        public IHttpActionResult Get([FromUri]string id)
+        {
+            var filter = Builders<Patient>.Filter.Eq("Id", ObjectId.Parse(id));
+            var patient = _patients.Find(filter).ToList().FirstOrDefault();
+
+            if (patient == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                // Serialise the data into the content result
+                return Ok(patient);
+            }
+        }
+
+        /// <summary>
+        /// WebAPI 2 - Get a paitients Medications
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [Route("{id}/medications")]
-        public HttpResponseMessage GetMedications(string id)
+        public IHttpActionResult GetMedications(string id)
         {
             var collection = _patients;
             var filter = Builders<Patient>.Filter.Eq("Id", ObjectId.Parse(id));
@@ -51,36 +77,14 @@ namespace PatientData2.Controllers
 
             if (patient == null)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Medications NOOOOT Found...");
+                return NotFound();
             }
             else
             {
-                return Request.CreateResponse(patient.Medications);
+                // Serialise the data into the content result
+                return Ok(patient.Medications);
             }
         }
-
-        /// <summary>
-        /// WebAPI 1.0 version
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [Route("{id}")]
-        //[HttpGet]
-        public HttpResponseMessage Get([FromUri]string id)
-        {
-            var filter = Builders<Patient>.Filter.Eq("Id", ObjectId.Parse(id));
-            var patient = _patients.Find(filter).ToList().FirstOrDefault();
-
-            if (patient == null)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Patient was NOOOOT Found...");
-            }
-            else
-            {
-                return Request.CreateResponse(patient);
-            }
-        }
-
 
 
 
@@ -105,5 +109,55 @@ namespace PatientData2.Controllers
         public void Delete(int id)
         {
         }
+
+
+# region WebAPI Version 1
+        ///// <summary>
+        ///// WEBAPI 1.0 version
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //[Route("{id}/medications")]
+        //public HttpResponseMessage GetMedications(string id)
+        //{
+        //    var collection = _patients;
+        //    var filter = Builders<Patient>.Filter.Eq("Id", ObjectId.Parse(id));
+        //    var patient = collection.Find(filter).ToList().FirstOrDefault();
+
+        //    if (patient == null)
+        //    {
+        //        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Medications NOOOOT Found...");
+        //    }
+        //    else
+        //    {
+        //        return Request.CreateResponse(patient.Medications);
+        //    }
+        //}
+
+        ///// <summary>
+        ///// WebAPI 1.0 version
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //[Route("{id}")]
+        ////[HttpGet]
+        //public HttpResponseMessage Get([FromUri]string id)
+        //{
+        //    var filter = Builders<Patient>.Filter.Eq("Id", ObjectId.Parse(id));
+        //    var patient = _patients.Find(filter).ToList().FirstOrDefault();
+
+        //    if (patient == null)
+        //    {
+        //        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Patient was NOOOOT Found...");
+        //    }
+        //    else
+        //    {
+        //        return Request.CreateResponse(patient);
+        //    }
+        //}
+#endregion
+
+
+
     }
 }

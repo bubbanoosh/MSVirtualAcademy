@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientData2", "PatientData
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientData2.Tests", "PatientData2.Tests\PatientData2.Tests.csproj", "{119033E5-17E8-4CEF-92B5-CC5EC61A630C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientData2Tests", "PatientData2Tests\PatientData2Tests.csproj", "{3C5BFF80-2E5F-4C38-85D2-2EC5F4296AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsClient", "CorsClient\CorsClient.csproj", "{1D944367-CDB1-454C-8E09-ECF6CA175F9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{119033E5-17E8-4CEF-92B5-CC5EC61A630C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119033E5-17E8-4CEF-92B5-CC5EC61A630C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119033E5-17E8-4CEF-92B5-CC5EC61A630C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C5BFF80-2E5F-4C38-85D2-2EC5F4296AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5BFF80-2E5F-4C38-85D2-2EC5F4296AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5BFF80-2E5F-4C38-85D2-2EC5F4296AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5BFF80-2E5F-4C38-85D2-2EC5F4296AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D944367-CDB1-454C-8E09-ECF6CA175F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D944367-CDB1-454C-8E09-ECF6CA175F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D944367-CDB1-454C-8E09-ECF6CA175F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D944367-CDB1-454C-8E09-ECF6CA175F9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

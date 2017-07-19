@@ -496,16 +496,16 @@
             Controller for patients
             </summary>
         </member>
-        <member name="M:PatientData2.Controllers.PatientsController.GetMedications(System.String)">
+        <member name="M:PatientData2.Controllers.PatientsController.Get(System.String)">
             <summary>
-            WEBAPI 1.0 version
+            WebAPI 2 - Get a patient by id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:PatientData2.Controllers.PatientsController.Get(System.String)">
+        <member name="M:PatientData2.Controllers.PatientsController.GetMedications(System.String)">
             <summary>
-            WebAPI 1.0 version
+            WebAPI 2 - Get a paitients Medications
             </summary>
             <param name="id"></param>
             <returns></returns>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books.Web", "Books.Web\Books.Web.csproj", "{C12D28A3-2A21-46AF-AEE4-70CE07F4070E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books.Web.Tests", "Books.Web.Tests\Books.Web.Tests.csproj", "{7970C9E0-67A8-4D96-B632-4A2C717FF574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Books.Entities", "Books.Entities\Books.Entities.csproj", "{340D1BEF-9C8E-4B7B-9042-FDE1A2063D41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C12D28A3-2A21-46AF-AEE4-70CE07F4070E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12D28A3-2A21-46AF-AEE4-70CE07F4070E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12D28A3-2A21-46AF-AEE4-70CE07F4070E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12D28A3-2A21-46AF-AEE4-70CE07F4070E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7970C9E0-67A8-4D96-B632-4A2C717FF574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7970C9E0-67A8-4D96-B632-4A2C717FF574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7970C9E0-67A8-4D96-B632-4A2C717FF574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7970C9E0-67A8-4D96-B632-4A2C717FF574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340D1BEF-9C8E-4B7B-9042-FDE1A2063D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340D1BEF-9C8E-4B7B-9042-FDE1A2063D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340D1BEF-9C8E-4B7B-9042-FDE1A2063D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340D1BEF-9C8E-4B7B-9042-FDE1A2063D41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
