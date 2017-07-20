@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace Books.Web.DataContexts
 {
@@ -12,6 +13,15 @@ namespace Books.Web.DataContexts
         public IdentityDb()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+        }
+        /// <summary>
+        /// Moving Schema: dbo > identity
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("identity");
+            base.OnModelCreating(modelBuilder);
         }
 
         public static IdentityDb Create()

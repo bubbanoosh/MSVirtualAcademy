@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        @* 
+            Knockout will bind to the view with 'message' *@
+        <input type="text" placeholder="Message" data-bind="value:message" />
+        @*
+            Knockout will bind to the click event*@
+        <button class="btn btn-primary" data-bind="click:sendMessage">Send Message</button>
+    </div>
+
+    <div class="col-md-4">
+        @*
+            Knockout will bind the items in the 
+            foreach with $data *@
+        <div data-bind="foreach:messages">
+            <div data-bind="text: $data"></div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+@section scripts {
+    @* JQuery + KnockoutJs *@
+    <script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+
+    @* SignalR listens for this on the server *@
+    <script src="~/SignalR/hubs"></script>
+
+    <script src="~/Scripts/signalRPerformanceSurf.js"></script>
+}
