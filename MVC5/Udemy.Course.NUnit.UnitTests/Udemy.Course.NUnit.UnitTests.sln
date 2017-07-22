@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Course.NUnit.UnitTests", "Udemy.Course.NUnit.UnitTests\Udemy.Course.NUnit.UnitTests.csproj", "{E8BC52C2-0DC9-4F0C-96AB-FBA02B4B812E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Course.NUnit.UnitTests.Tests", "Udemy.Course.NUnit.UnitTests.Tests\Udemy.Course.NUnit.UnitTests.Tests.csproj", "{4AFF1484-9AC2-4B08-83B8-12516742BAA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8BC52C2-0DC9-4F0C-96AB-FBA02B4B812E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BC52C2-0DC9-4F0C-96AB-FBA02B4B812E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BC52C2-0DC9-4F0C-96AB-FBA02B4B812E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BC52C2-0DC9-4F0C-96AB-FBA02B4B812E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AFF1484-9AC2-4B08-83B8-12516742BAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AFF1484-9AC2-4B08-83B8-12516742BAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AFF1484-9AC2-4B08-83B8-12516742BAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AFF1484-9AC2-4B08-83B8-12516742BAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
