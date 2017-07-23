@@ -17,14 +17,16 @@ namespace Udemy.Course.NUnit.UnitTests
             Balance = startingBalance;  
         }
 
-        public void Deposit(int amount)
+        public bool Deposit(int amount)
         {
             if (amount < 0)
                 throw new ArgumentException(
                     "Deposit must be positive", 
                     nameof(amount));
 
+            if (amount == 0) return false;
             Balance += amount;
+            return true;
         }
 
         public bool Withdraw(int amount)

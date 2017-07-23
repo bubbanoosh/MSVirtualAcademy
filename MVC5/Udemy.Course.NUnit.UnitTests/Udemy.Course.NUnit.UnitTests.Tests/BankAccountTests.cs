@@ -46,9 +46,21 @@ namespace Udemy.Course.NUnit.UnitTests.Tests
         [Test]
         public void WithdrawlReturnsTrue()
         {
-            bool response = ba.Withdraw(3);
+            var response = ba.Withdraw(3);
 
             Assert.AreEqual(response, true);
+        }
+        [Test]
+        public void Withdrawl_ThrowsExceptionOnNegativeWithdrawl()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                ba.Withdraw(-10));
+        }
+        [Test]
+        public void Deposit_ThrowsExceptionOnNegativeDeposit()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                ba.Deposit(-10));
         }
 
         [Test]

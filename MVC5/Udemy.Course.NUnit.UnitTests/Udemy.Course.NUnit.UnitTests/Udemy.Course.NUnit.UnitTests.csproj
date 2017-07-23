@@ -42,12 +42,19 @@
   <ItemGroup>
     <Compile Include="BankAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDoubles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnitTestsConsoleStartup\UnitTestsConsoleStartup.csproj">
+      <Project>{4ebd3f90-76e0-4686-9266-5c7f910a5d7d}</Project>
+      <Name>UnitTestsConsoleStartup</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Course.NUnit.UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Course.NUnit.UnitTests.Tests", "Udemy.Course.NUnit.UnitTests.Tests\Udemy.Course.NUnit.UnitTests.Tests.csproj", "{4AFF1484-9AC2-4B08-83B8-12516742BAA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestsConsoleStartup", "UnitTestsConsoleStartup\UnitTestsConsoleStartup.csproj", "{4EBD3F90-76E0-4686-9266-5C7F910A5D7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4AFF1484-9AC2-4B08-83B8-12516742BAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AFF1484-9AC2-4B08-83B8-12516742BAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AFF1484-9AC2-4B08-83B8-12516742BAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EBD3F90-76E0-4686-9266-5C7F910A5D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EBD3F90-76E0-4686-9266-5C7F910A5D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EBD3F90-76E0-4686-9266-5C7F910A5D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EBD3F90-76E0-4686-9266-5C7F910A5D7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
