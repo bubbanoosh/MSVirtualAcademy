@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Course.NUnit.UnitTestsThree_Moq", "Udemy.Course.NUnit.UnitTestsThree_Moq\Udemy.Course.NUnit.UnitTestsThree_Moq.csproj", "{173759FB-1F1F-447D-8224-BDB3E924BE62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udemy.Course.NUnit.UnitTestsThree_MoqTests", "Udemy.Course.NUnit.UnitTestsThree_MoqTests\Udemy.Course.NUnit.UnitTestsThree_MoqTests.csproj", "{F8D20189-6DEC-4D67-B7F4-B536B5B33683}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{173759FB-1F1F-447D-8224-BDB3E924BE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{173759FB-1F1F-447D-8224-BDB3E924BE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{173759FB-1F1F-447D-8224-BDB3E924BE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{173759FB-1F1F-447D-8224-BDB3E924BE62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D20189-6DEC-4D67-B7F4-B536B5B33683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D20189-6DEC-4D67-B7F4-B536B5B33683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D20189-6DEC-4D67-B7F4-B536B5B33683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D20189-6DEC-4D67-B7F4-B536B5B33683}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
