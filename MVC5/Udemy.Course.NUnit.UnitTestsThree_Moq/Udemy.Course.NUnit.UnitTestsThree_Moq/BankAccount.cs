@@ -11,12 +11,12 @@ namespace Udemy.Course.NUnit.UnitTestsThree_Moq
         bool Write(string msg);
     }
 
-    public class BankAccountMoq
+    public class BankAccount
     {
         public int Balance { get; set; }
         private ILog log;
 
-        public BankAccountMoq(ILog log)
+        public BankAccount(ILog log)
         {
             this.log = log;
         }

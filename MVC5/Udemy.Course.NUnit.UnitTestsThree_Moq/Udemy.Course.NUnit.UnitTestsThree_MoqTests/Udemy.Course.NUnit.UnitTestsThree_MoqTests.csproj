@@ -51,8 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankAccountMoqTests.cs" />
-    <Compile Include="BarMoqTests.cs" />
+    <Compile Include="BankAccountTests.cs" />
+    <Compile Include="DoctorWithIAnimalInterfaceTests.cs" />
+    <Compile Include="IFooTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

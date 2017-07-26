@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankAccountMoq.cs" />
-    <Compile Include="BarMoq.cs" />
+    <Compile Include="BankAccount.cs" />
+    <Compile Include="Bar.cs" />
+    <Compile Include="DoctorWithIAnimalInterface.cs" />
+    <Compile Include="IFoo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
