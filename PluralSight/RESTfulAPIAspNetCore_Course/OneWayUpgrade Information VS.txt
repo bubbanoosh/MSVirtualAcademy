@@ -1,0 +1,16 @@
+One-way upgrade
+Visual Studio will automatically make functional changes to the following projects in order to open them. You will not be able to open these projects in the version of Visual Studio in which they were originally created.
+	 - Library.API, "D:\Websites\MSVirtualAcademy\PluralSight\RESTfulAPIAspNetCore_Course\src\Library.API\Library.API.xproj"
+
+
+Non-functional changes required
+Visual Studio will automatically make non-functional changes to the following projects in order to enable them to open in Visual Studio 2015, Visual Studio 2013, Visual Studio 2012, and Visual Studio 2010 SP1. Project behavior will not be impacted.
+	 - RESTfulAPIAspNetCore_Course, "D:\Websites\MSVirtualAcademy\PluralSight\RESTfulAPIAspNetCore_Course\RESTfulAPIAspNetCore_Course.sln"
+
+
+No changes required
+These projects can be opened in Visual Studio 2015, Visual Studio 2013, Visual Studio 2012, and Visual Studio 2010 SP1 without changing them.
+	 - src, "src"
+	 - Solution Items, "Solution Items"
+
+
