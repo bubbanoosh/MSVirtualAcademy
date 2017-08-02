@@ -12,6 +12,7 @@ using Library.API.Services;
 using Library.API.Entities;
 using Microsoft.EntityFrameworkCore;
 using Library.API.Helpers;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Library.API
 {
@@ -34,7 +35,14 @@ namespace Library.API
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            
+            services.AddMvc(setupAction =>
+            {   
+                // EW (^_^): Return 406 for Non JSON request
+                setupAction.ReturnHttpNotAcceptable = true;
+                // EW (^_^): Accept header for XML allowed
+                setupAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+            });
 
             // register the DbContext on the container, getting the connection string from
             // appSettings (note: use this during development; in a production environment,
@@ -58,9 +66,10 @@ namespace Library.API
             }
             else
             {
-                // Production mode error handling
+                // EW (^_^): Production mode error handling
                 app.UseExceptionHandler(appBuilder =>
                 {
+                    // EW: Clean 500 msg for Production
                     appBuilder.Run(async context =>
                     {
                         context.Response.StatusCode = 500;
@@ -69,6 +78,7 @@ namespace Library.API
                 });
             }
 
+            // EW (^_^): Map DTOs
             AutoMapper.Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Entities.Author, Models.AuthorDto>()
@@ -76,7 +86,12 @@ namespace Library.API
                         $"{src.FirstName} {src.LastName}"))
                     .ForMember(dest => dest.Age, opt => opt.MapFrom(src =>
                         src.DateOfBirth.GetCurrentAge()));
+
+                cfg.CreateMap<Entities.Book, Models.BookDto>();
+                cfg.CreateMap<Models.AuthorForCreationDto, Entities.Author>();
+                cfg.CreateMap<Models.BookForCreationDto, Entities.Book>();
             });
+            
 
             libraryContext.EnsureSeedDataForContext();
 
