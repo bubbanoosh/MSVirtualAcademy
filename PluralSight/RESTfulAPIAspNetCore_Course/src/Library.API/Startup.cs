@@ -42,6 +42,8 @@ namespace Library.API
                 setupAction.ReturnHttpNotAcceptable = true;
                 // EW (^_^): Accept header for XML allowed
                 setupAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+                // EW (^_^): XML INPUT formatter too
+                setupAction.InputFormatters.Add(new XmlDataContractSerializerInputFormatter());
             });
 
             // register the DbContext on the container, getting the connection string from
@@ -90,6 +92,7 @@ namespace Library.API
                 cfg.CreateMap<Entities.Book, Models.BookDto>();
                 cfg.CreateMap<Models.AuthorForCreationDto, Entities.Author>();
                 cfg.CreateMap<Models.BookForCreationDto, Entities.Book>();
+                cfg.CreateMap<Models.BookForUpdateDto, Entities.Book>();
             });
             
 

@@ -82,5 +82,86 @@ namespace Library.API.Controllers
                 new {authorId = authorId, id = bookToReturn.Id},
                 bookToReturn);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBookForAuthor(Guid authorId, Guid id)
+        {
+            if (!_libraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+            var bookForAuthorFromRepo = _libraryRepository.GetBookForAuthor(authorId, id);
+            if (bookForAuthorFromRepo == null)
+            {
+                return NotFound($"No Author or book found for Author: {authorId}");
+            }
+
+            _libraryRepository.DeleteBook(bookForAuthorFromRepo);
+            if (!_libraryRepository.Save())
+            {
+                throw new Exception($"Deleting book {id} for author {authorId} failed on save.");
+            }
+
+            // Successful but there's now no content
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateBookForAuthor(Guid authorId, Guid id,
+            [FromBody] BookForUpdateDto book)
+        {
+            if (book == null)
+            {
+                return BadRequest(); //400
+            }
+
+            if (!_libraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+            var bookForAuthorFromRepo = _libraryRepository.GetBookForAuthor(authorId, id);
+            /*
+             UPSERTING HERE!!!!!
+             */
+            if (bookForAuthorFromRepo == null)
+            {
+                //return NotFound($"No Author or book found for Author: {authorId}");
+                
+                // UPSERTING if it does not exist to UPDATE with PUT
+                var bookToAdd = Mapper.Map<Book>(book);
+                // Consumer passed a Guid
+                bookToAdd.Id = id;
+                _libraryRepository.AddBookForAuthor(authorId, bookToAdd);
+                if (!_libraryRepository.Save())
+                {
+                    throw new Exception($"Upserting Book for {id} for author {authorId} failed on save.");
+                }
+                var bookToReturnFromUpsert = Mapper.Map<BookDto>(bookToAdd);
+                return CreatedAtRoute("GetBookForAuthor",
+                    new {authorId = authorId, id = bookToReturnFromUpsert.Id},
+                    bookToReturnFromUpsert);
+
+            }
+
+            //map
+            Mapper.Map(book, bookForAuthorFromRepo);
+            // apply update
+            _libraryRepository.UpdateBookForAuthor(bookForAuthorFromRepo);
+            if (!_libraryRepository.Save())
+            {
+                throw new Exception($"Book {id} could not be updated on save.");
+            }
+
+            //// map back to entity if required
+            //// return NoContent(); OR
+            //var bookToReturn = Mapper.Map<BookDto>(bookForAuthorFromRepo);
+            //return CreatedAtRoute("GetBookForAuthor",
+            //    new { authorId = authorId, id = bookToReturn.Id },
+            //    bookToReturn);
+            return NoContent(); // 204 No Content
+
+        }
     }
 }
