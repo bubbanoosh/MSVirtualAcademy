@@ -7,6 +7,7 @@ using Library.API.Entities;
 using Library.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Library.API.Models;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Library.API.Controllers
 {
@@ -162,6 +163,60 @@ namespace Library.API.Controllers
             //    bookToReturn);
             return NoContent(); // 204 No Content
 
+        }
+
+        [HttpPatch("{id}")]
+        public IActionResult PartiallyUpdateBookForAuthor(Guid authorId, Guid id,
+            [FromBody] JsonPatchDocument<BookForUpdateDto> patchDoc)
+        {
+            if (patchDoc == null)
+            {
+                return BadRequest();
+            }
+            if (!_libraryRepository.AuthorExists(authorId))
+            {
+                return NotFound();
+            }
+
+            var bookForAuthorFromRepo = _libraryRepository.GetBookForAuthor(authorId, id);
+            if (bookForAuthorFromRepo == null)
+            {
+                //return NotFound();
+                var bookDto = new BookForUpdateDto();
+                patchDoc.ApplyTo(bookDto);
+
+                var bookToAdd = Mapper.Map<Book>(bookDto);
+                bookToAdd.Id = id;
+
+                _libraryRepository.AddBookForAuthor(authorId, bookToAdd);
+
+                if (!_libraryRepository.Save())
+                {
+                    throw new Exception($"UPSERTING book {id} for author {authorId} failed on save.");
+                }
+
+                var bookToReturn = Mapper.Map<BookDto>(bookToAdd);
+                return CreatedAtRoute("GetBookForAuthor",
+                    new {authorId = authorId, id = bookToReturn.Id},
+                    bookToReturn);
+            }
+
+            // MAP to the Dto
+            var bookToPatch = Mapper.Map<BookForUpdateDto>(bookForAuthorFromRepo);
+            // PATCH the Dto
+            patchDoc.ApplyTo(bookToPatch);
+
+            // Add validation
+
+            // MAP back to the entity
+            Mapper.Map(bookToPatch, bookForAuthorFromRepo);
+            _libraryRepository.UpdateBookForAuthor(bookForAuthorFromRepo);
+            if (!_libraryRepository.Save())
+            {
+                throw new Exception($"PATCH failed for author {authorId}, book {id} on save.");
+            }
+
+            return NoContent();
         }
     }
 }
