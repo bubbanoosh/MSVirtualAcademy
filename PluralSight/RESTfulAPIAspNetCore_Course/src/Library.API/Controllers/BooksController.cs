@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Library.API.Entities;
+using Library.API.Helpers;
 using Library.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Library.API.Models;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.CodeAnalysis.Semantics;
 
 namespace Library.API.Controllers
 {
@@ -65,6 +67,18 @@ namespace Library.API.Controllers
             {
                 return BadRequest();
             }
+            // TODO: Refactor Validation using FLUENTVALIDATION in CreateBookForAuthor()
+            if (book.Description == book.Title)
+            {
+                ModelState.AddModelError(nameof(BookForCreationDto), 
+                    "Description should be different to Title!");
+            }
+            // return 422 - Unprocessable Entity
+            if (!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
+
             if (!_libraryRepository.AuthorExists(authorId))
             {
                 return NotFound();
@@ -188,6 +202,20 @@ namespace Library.API.Controllers
                 var bookToAdd = Mapper.Map<Book>(bookDto);
                 bookToAdd.Id = id;
 
+                // TODO: Refactor Validation using FLUENTVALIDATION in PartiallyUpdateBookForAuthor() UPSERT
+                if (bookToAdd.Description == bookToAdd.Title)
+                {
+                    ModelState.AddModelError(nameof(BookForCreationDto),
+                        "Description should be different to Title!");
+                }
+                // DataAnnotation validation fails because this is a PATCH doc and not an UpdateDto
+                // so this will trigger validation on the Patch
+                TryValidateModel(bookToAdd);
+                if (!ModelState.IsValid)
+                {
+                    return new UnprocessableEntityObjectResult(ModelState);
+                }
+
                 _libraryRepository.AddBookForAuthor(authorId, bookToAdd);
 
                 if (!_libraryRepository.Save())
@@ -203,10 +231,22 @@ namespace Library.API.Controllers
 
             // MAP to the Dto
             var bookToPatch = Mapper.Map<BookForUpdateDto>(bookForAuthorFromRepo);
-            // PATCH the Dto
-            patchDoc.ApplyTo(bookToPatch);
+            // PATCH the Dto (Errors on the ModelState will throw errors)
+            patchDoc.ApplyTo(bookToPatch, ModelState);
 
-            // Add validation
+            // TODO: Refactor Validation using FLUENTVALIDATION in PartiallyUpdateBookForAuthor()
+            if (bookToPatch.Description == bookToPatch.Title)
+            {
+                ModelState.AddModelError(nameof(BookForCreationDto),
+                    "Description should be different to Title!");
+            }
+            // DataAnnotation validation fails because this is a PATCH doc and not an UpdateDto
+            // so this will trigger validation on the Patch
+            TryValidateModel(bookToPatch);
+            if (!ModelState.IsValid)
+            {
+                return new UnprocessableEntityObjectResult(ModelState);
+            }
 
             // MAP back to the entity
             Mapper.Map(bookToPatch, bookForAuthorFromRepo);

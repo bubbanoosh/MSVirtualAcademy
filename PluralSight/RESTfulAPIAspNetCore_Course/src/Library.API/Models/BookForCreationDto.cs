@@ -1,8 +1,9 @@
-﻿namespace Library.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Library.API.Models
 {
-    public class BookForCreationDto
+    // Derives from the ABSTRACT class
+    public class BookForCreationDto : BookForManipulationDto
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
     }
 }
