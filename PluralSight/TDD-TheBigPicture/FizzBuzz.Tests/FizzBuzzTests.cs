@@ -16,7 +16,7 @@ namespace FizzBuzz.Tests
         [TestMethod]
         public void ShouldPrintNumber()
         {
-            Assert.AreEqual("1", _fizzBuzz.Print(1));
+            Assert.AreEqual("1", _fizzBuzz.Print(3));
         }
 
         [TestMethod]
