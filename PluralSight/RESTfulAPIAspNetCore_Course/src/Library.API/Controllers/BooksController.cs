@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Library.API.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.CodeAnalysis.Semantics;
+using Microsoft.Extensions.Logging;
 
 namespace Library.API.Controllers
 {
@@ -17,10 +18,13 @@ namespace Library.API.Controllers
     public class BooksController : Controller
     {
         private readonly ILibraryRepository _libraryRepository;
+        private ILogger<BooksController> _logger;
 
-        public BooksController(ILibraryRepository libraryRepository)
+        public BooksController(ILibraryRepository libraryRepository,
+            ILogger<BooksController> logger)
         {
             _libraryRepository = libraryRepository;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -118,6 +122,8 @@ namespace Library.API.Controllers
                 throw new Exception($"Deleting book {id} for author {authorId} failed on save.");
             }
 
+            _logger.LogInformation(100, $"Book {id} for Author {authorId} was DELETED!!");
+
             // Successful but there's now no content
             return NoContent();
         }
@@ -197,7 +203,7 @@ namespace Library.API.Controllers
             {
                 //return NotFound();
                 var bookDto = new BookForUpdateDto();
-                patchDoc.ApplyTo(bookDto);
+                patchDoc.ApplyTo(bookDto, ModelState);
 
                 var bookToAdd = Mapper.Map<Book>(bookDto);
                 bookToAdd.Id = id;
@@ -233,7 +239,6 @@ namespace Library.API.Controllers
             var bookToPatch = Mapper.Map<BookForUpdateDto>(bookForAuthorFromRepo);
             // PATCH the Dto (Errors on the ModelState will throw errors)
             patchDoc.ApplyTo(bookToPatch, ModelState);
-
             // TODO: Refactor Validation using FLUENTVALIDATION in PartiallyUpdateBookForAuthor()
             if (bookToPatch.Description == bookToPatch.Title)
             {
