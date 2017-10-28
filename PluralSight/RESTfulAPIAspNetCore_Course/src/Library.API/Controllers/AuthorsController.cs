@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Library.API.Controllers
 {
+    //[Produces("application/json")]
     [Route("api/authors")]
     public class AuthorsController : Controller
     {
